@@ -1,6 +1,3 @@
-head(avgdiaper)
-sum(Feeds)#
-sum(Diaper)
 sum(diaper)
 sum(diaper, Feeds)
 totaldiaper <- sum(diaper, Feeds)
@@ -248,9 +245,44 @@ Data <- read.csv('data.csv', stringsAsFactors=F)
 setwd('/Users/Courtney Tilley/Desktop/Evolution/Projects'')
 Data <- read.csv('data.csv', stringsAsFactors=F)
 setwd('/Users/Courtney Tilley/Desktop/Evolution/Projects')
-setwd('/Users/Courtney Tilley/Desktop/Evolution/Projects')
-~/Desktop/Evolution/Projects/Projects
-setwd('~/Desktop/Evolution/Projects/Projects')
-Data <- read.csv('data.csv', stringsAsFactors=F)
-setwd('~/Desktop/Evolution/Projects/Projects')
-Data <- read.csv('data.csv', stringsAsFactors=F)
+source("http://jonsmitchell.com/code/reformatData07.R")#
+source("http://jonsmitchell.com/code/simFxn.R")#
+plot(1,1, type="n", xlim=c(1998, 2013), ylim=c(0,1))#
+s <- apply(overallFreq, 2, function(x) lines(overallFreq[,1], x, col=rgb(0,0,0,0.01)))#
+rescaleFreq <- apply(overallFreq[,3:ncol(overallFreq)], 2, function(x)x-x[1]#
+plot(1,1, type="n", xlim=c(1998, 2013) ylim=c(-0.25, 0.25))#
+s <- apply(rescaleFreq, 2, function(x) lines(overalFreq[,1], x, col=rgb(0,0,0,0.01)))#
+plot(1, 1, type="n", xlim=c(1998, 2013), ylim=c(-0.25, 0.25))#
+dYear <- c()#
+dAlleles <- c()#
+for(i in 3:ncol(overalFreq)) {#
+  dYear <- c(dYear, overallFreq[,1])#
+  Vec <- overallFreq[,i]#
+  Init <- overallFreq [1,i] #
+  dAlleles <- c(dAllele, Vec - Init)#
+}
+source("http://jonsmitchell.com/code/reformatData07.R")#
+source("http://jonsmitchell.com/code/simFxn.R")#
+plot(1,1, type="n", xlim=c(1998, 2013), ylim=c(0,1))#
+s <- apply(overallFreq, 2, function(x) lines(overallFreq[,1], x, col=rgb(0,0,0,0.01)))
+rescaleFreq <- apply(overallFreq[,3:ncol(overallFreq)], 2, function(x)x-x[1]#
+plot(1,1, type="n", xlim=c(1998, 2013) ylim=c(-0.25, 0.25))#
+s <- apply(rescaleFreq, 2, function(x) lines(overalFreq[,1], x, col=rgb(0,0,0,0.01)))#
+plot(1, 1, type="n", xlim=c(1998, 2013), ylim=c(-0.25, 0.25))#
+dYear <- c()#
+dAlleles <- c()#
+for(i in 3:ncol(overalFreq)) {#
+  dYear <- c(dYear, overallFreq[,1])#
+  Vec <- overallFreq[,i]#
+  Init <- overallFreq [1,i] #
+  dAlleles <- c(dAllele, Vec - Init)#
+}
+setwd('~/Desktop/Evolution/Projects/Projects')#
+Data <- read.csv('data.csv', stringsAsFactors=F)#
+setwd('~/Desktop/Evolution/Projects/Projects')#
+Data <- read.csv('data2.csv', stringsAsFactors=F)#
+EggWt <- Data[,7]
+AvgElev <- Data[,5]
+MeanWeight <- tapply(EggWt, AvgElev, mean)
+SDWeight <- tapply(EggWt, AvgElev, sd)
+plot(as.numeric(names(MeanWeight)), MeanWeight, ylim=c(0,1))
